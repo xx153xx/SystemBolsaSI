@@ -18,7 +18,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     public String Cnpj ;
     public long valorPatri;
     public String codPapel ;
-    public float PorcentagemPapel;
+    public float ValorAtivo;
     public int QuantAcao ;
     public CadastroEmpresa() {
         initComponents();
@@ -51,8 +51,8 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         txtQuantAcao = new javax.swing.JFormattedTextField();
         txtCnpj = new javax.swing.JFormattedTextField();
         txtValorPatri = new javax.swing.JFormattedTextField();
-        txtPorcentagemPapel = new javax.swing.JFormattedTextField();
         jLabel22 = new javax.swing.JLabel();
+        txtValorAtivo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Cadastro de Empresas");
@@ -65,11 +65,11 @@ public class CadastroEmpresa extends javax.swing.JFrame {
 
         jLabel14.setText("Valor do patrimõnio R$: ");
 
-        jLabel15.setText("Código do papel");
+        jLabel15.setText("Código do ativo");
 
-        jLabel16.setText("Porcentagem do papel referente ao valor do patrimônio: ");
+        jLabel16.setText("Valor do ativo");
 
-        jLabel17.setText("Quantidade de ações do papel: ");
+        jLabel17.setText("Quantidade de ações do ativo: ");
 
         btnCadastroEmpresa.setText("Cadastrar");
         btnCadastroEmpresa.addActionListener(new java.awt.event.ActionListener() {
@@ -83,7 +83,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nomo da empresa", "CNPJ", "Valor do patrimônio", "Papel", "% Papel", "Quantidade de Ações"
+                "Nomo da empresa", "CNPJ", "Valor do patrimônio", "Ativo", "Valor do ativo", "Quantidade de Ações"
             }
         ));
         tbEmpresa.getTableHeader().setReorderingAllowed(false);
@@ -123,12 +123,6 @@ public class CadastroEmpresa extends javax.swing.JFrame {
             ex.printStackTrace();
         }
 
-        try {
-            txtPorcentagemPapel.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("##.##")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-
         jLabel22.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("ex: 00.00");
@@ -149,8 +143,8 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         jpnCadastroEmpresa.setLayer(txtQuantAcao, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jpnCadastroEmpresa.setLayer(txtCnpj, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jpnCadastroEmpresa.setLayer(txtValorPatri, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jpnCadastroEmpresa.setLayer(txtPorcentagemPapel, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jpnCadastroEmpresa.setLayer(jLabel22, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jpnCadastroEmpresa.setLayer(txtValorAtivo, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jpnCadastroEmpresaLayout = new javax.swing.GroupLayout(jpnCadastroEmpresa);
         jpnCadastroEmpresa.setLayout(jpnCadastroEmpresaLayout);
@@ -184,7 +178,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
                     .addGroup(jpnCadastroEmpresaLayout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtPorcentagemPapel, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtValorAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jpnCadastroEmpresaLayout.createSequentialGroup()
                         .addGroup(jpnCadastroEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel14)
@@ -195,7 +189,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
                             .addComponent(txtValorPatri))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(157, Short.MAX_VALUE))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
         jpnCadastroEmpresaLayout.setVerticalGroup(
             jpnCadastroEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -223,7 +217,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
                     .addComponent(jLabel17)
                     .addComponent(txtQuantAcao, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel16)
-                    .addComponent(txtPorcentagemPapel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtValorAtivo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(33, 33, 33)
                 .addGroup(jpnCadastroEmpresaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastroEmpresa)
@@ -245,11 +239,11 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         Cnpj = txtCnpj.getText();
         valorPatri = Long.parseLong(txtValorPatri.getText());
         codPapel = txtCodPapel.getText();
-        PorcentagemPapel = Float.parseFloat(txtPorcentagemPapel.getText());
+        ValorAtivo = Float.parseFloat(txtValorAtivo.getText());
         QuantAcao = Integer.parseInt(txtQuantAcao.getText());
 
         DefaultTableModel jTbCadastro = (DefaultTableModel) tbEmpresa.getModel();
-        Object[] dados= {nomeEmpresa, Cnpj, valorPatri, codPapel, PorcentagemPapel,QuantAcao };
+        Object[] dados= {nomeEmpresa, Cnpj, valorPatri, codPapel, ValorAtivo,QuantAcao };
         jTbCadastro.addRow(dados);
         JOptionPane.showMessageDialog(null, "Cadastro Efetuado com sucesso!");
        
@@ -257,7 +251,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         txtCnpj.setText("");
         txtValorPatri.setText("");
         txtCodPapel.setText("");
-        txtPorcentagemPapel.setText("");
+        txtValorAtivo.setText("");
         txtQuantAcao.setText("");
     }//GEN-LAST:event_btnCadastroEmpresaActionPerformed
 
@@ -268,7 +262,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
             txtCnpj.setText(tbEmpresa.getValueAt(tbEmpresa.getSelectedRow(), 1).toString());
             txtValorPatri.setText(tbEmpresa.getValueAt(tbEmpresa.getSelectedRow(), 2).toString());
             txtCodPapel.setText(tbEmpresa.getValueAt(tbEmpresa.getSelectedRow(), 3).toString());
-            txtPorcentagemPapel.setText(tbEmpresa.getValueAt(tbEmpresa.getSelectedRow(), 4).toString());
+            txtValorAtivo.setText(tbEmpresa.getValueAt(tbEmpresa.getSelectedRow(), 4).toString());
             txtQuantAcao.setText(tbEmpresa.getValueAt(tbEmpresa.getSelectedRow(), 5).toString());
         }
     }//GEN-LAST:event_tbEmpresaMouseClicked
@@ -288,7 +282,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         txtCnpj.setText("");
         txtValorPatri.setText("");
         txtCodPapel.setText("");
-        txtPorcentagemPapel.setText("");
+        txtValorAtivo.setText("");
         txtQuantAcao.setText("");
 
     }//GEN-LAST:event_btnExcluirActionPerformed
@@ -299,14 +293,14 @@ public class CadastroEmpresa extends javax.swing.JFrame {
             Cnpj = txtCnpj.getText();
             valorPatri = Long.parseLong(txtValorPatri.getText());
             codPapel = txtCodPapel.getText();
-            PorcentagemPapel = Float.parseFloat(txtPorcentagemPapel.getText());
+            ValorAtivo = Float.parseFloat(txtValorAtivo.getText());
             QuantAcao = Integer.parseInt(txtQuantAcao.getText());
 
             tbEmpresa.setValueAt(nomeEmpresa,tbEmpresa.getSelectedRow() , 0);
             tbEmpresa.setValueAt(Cnpj,tbEmpresa.getSelectedRow() , 1);
             tbEmpresa.setValueAt(valorPatri,tbEmpresa.getSelectedRow() , 2);
             tbEmpresa.setValueAt(codPapel,tbEmpresa.getSelectedRow() , 3);
-            tbEmpresa.setValueAt(PorcentagemPapel,tbEmpresa.getSelectedRow() , 4);
+            tbEmpresa.setValueAt(ValorAtivo,tbEmpresa.getSelectedRow() , 4);
             tbEmpresa.setValueAt(QuantAcao,tbEmpresa.getSelectedRow() , 5);
         }else{ JOptionPane.showMessageDialog(null, "Selecione um item para atualizar!!!");
             return;
@@ -317,7 +311,7 @@ public class CadastroEmpresa extends javax.swing.JFrame {
         txtCnpj.setText("");
         txtValorPatri.setText("");
         txtCodPapel.setText("");
-        txtPorcentagemPapel.setText("");
+        txtValorAtivo.setText("");
         txtQuantAcao.setText("");
 
     }//GEN-LAST:event_btnAtualizarActionPerformed
@@ -382,8 +376,8 @@ public class CadastroEmpresa extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField txtCnpj;
     private javax.swing.JFormattedTextField txtCodPapel;
     private javax.swing.JFormattedTextField txtEmpresa;
-    private javax.swing.JFormattedTextField txtPorcentagemPapel;
     private javax.swing.JFormattedTextField txtQuantAcao;
+    private javax.swing.JTextField txtValorAtivo;
     private javax.swing.JFormattedTextField txtValorPatri;
     // End of variables declaration//GEN-END:variables
 }

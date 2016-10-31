@@ -73,7 +73,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="txtPorcentagemPapel" min="-2" pref="224" max="-2" attributes="0"/>
+                          <Component id="txtValorAtivo" min="-2" pref="224" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -89,7 +89,7 @@
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jLabel22" min="-2" pref="78" max="-2" attributes="0"/>
-                  <EmptySpace pref="157" max="32767" attributes="0"/>
+                  <EmptySpace pref="319" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -125,7 +125,7 @@
                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtQuantAcao" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtPorcentagemPapel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtValorAtivo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -158,17 +158,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel15">
           <Properties>
-            <Property name="text" type="java.lang.String" value="C&#xf3;digo do papel"/>
+            <Property name="text" type="java.lang.String" value="C&#xf3;digo do ativo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Porcentagem do papel referente ao valor do patrim&#xf4;nio: "/>
+            <Property name="text" type="java.lang.String" value="Valor do ativo"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Quantidade de a&#xe7;&#xf5;es do papel: "/>
+            <Property name="text" type="java.lang.String" value="Quantidade de a&#xe7;&#xf5;es do ativo: "/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="btnCadastroEmpresa">
@@ -193,10 +193,44 @@
                     <Column editable="true" title="Nomo da empresa" type="java.lang.Object"/>
                     <Column editable="true" title="CNPJ" type="java.lang.Object"/>
                     <Column editable="true" title="Valor do patrim&#xf4;nio" type="java.lang.Object"/>
-                    <Column editable="true" title="Papel" type="java.lang.Object"/>
-                    <Column editable="true" title="% Papel" type="java.lang.Object"/>
+                    <Column editable="true" title="Ativo" type="java.lang.Object"/>
+                    <Column editable="true" title="Valor do ativo" type="java.lang.Object"/>
                     <Column editable="true" title="Quantidade de A&#xe7;&#xf5;es" type="java.lang.Object"/>
                   </Table>
+                </Property>
+                <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                  <TableColumnModel selectionModel="0">
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                    <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                      <Title/>
+                      <Editor/>
+                      <Renderer/>
+                    </Column>
+                  </TableColumnModel>
                 </Property>
                 <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                   <TableHeader reorderingAllowed="false" resizingAllowed="true"/>
@@ -250,13 +284,6 @@
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="txtValorPatri">
         </Component>
-        <Component class="javax.swing.JFormattedTextField" name="txtPorcentagemPapel">
-          <Properties>
-            <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor" preCode="try {" postCode="} catch (java.text.ParseException ex) {&#xa;ex.printStackTrace();&#xa;}">
-              <Format format="##.##" subtype="-1" type="5"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -267,6 +294,8 @@
             </Property>
             <Property name="text" type="java.lang.String" value="ex: 00.00"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="txtValorAtivo">
         </Component>
       </SubComponents>
     </Container>
