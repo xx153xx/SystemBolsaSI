@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.sql.Connection;
 
 public class Conexao {
-    public Connection getConnection() throws SQLException{
+    public Connection getConnection() {
         try{
            
            return DriverManager.getConnection ("jdbc:mysql://localhost:3066/cadastro","root","admin");

@@ -14,7 +14,9 @@ public class SystemBolsa {
     
     public static void main(String[] args) throws SQLException{
         
-        
+        Connection co = new Conexao().getConnection();
+        System.out.println("conexao aberta");
+        co.close();
         
     }
     

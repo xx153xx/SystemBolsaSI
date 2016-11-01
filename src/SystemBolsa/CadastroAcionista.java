@@ -7,7 +7,11 @@ package SystemBolsa;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+import Controle.Acionista;
+import Controle.AcionistaDao;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author derp_
@@ -269,18 +273,26 @@ public class CadastroAcionista extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenha2CadastroActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+        
+        Acionista acionista = new Acionista();
+        
         nomeCadastro = this.txtNomeCadastro.getText();
+        acionista.setNome(nomeCadastro);
         cpfCadastro = this.txtCpfCadastro.getText();
+        acionista.setCpf(cpfCadastro);
         PlanoCadastro = Float.parseFloat(this.txtPlanoCadastro.getText());
         UsuarioCadastro = this.txtUsuarioCadastro.getText();
+        acionista.setUsuario(UsuarioCadastro);
         SenhaCadastro = new String(this.txtSenhaCadastro.getPassword()).trim();
         SenhaCadastro2 = new String(this.txtSenha2Cadastro.getPassword()).trim();
+        
         if (((PlanoCadastro != 1500) && (PlanoCadastro != 3000) && (PlanoCadastro != 5000)) || (!(SenhaCadastro.equals(SenhaCadastro2)))){
             if((!(SenhaCadastro.equals(SenhaCadastro2)))){
                 lblSenha2.setText("Senhas Incompatíveis!!!");
 
             }else if(SenhaCadastro.equals(SenhaCadastro2)){
                 lblSenha2.setText("");
+                acionista.setSenha(SenhaCadastro);
 
             }if((PlanoCadastro != 1500) && (PlanoCadastro != 3000) && (PlanoCadastro != 5000)){
                 lblPlanoCadastro.setText("Plano Imcompatível!!!");
@@ -290,15 +302,25 @@ public class CadastroAcionista extends javax.swing.JFrame {
 
             else if ((PlanoCadastro == 1500) || (PlanoCadastro == 3000) || (PlanoCadastro == 5000)){
                 lblPlanoCadastro.setText(" ");
+                acionista.setPlano(PlanoCadastro);
 
             }
         }
 
         else {
+                             
 
             DefaultTableModel jTbCadastro = (DefaultTableModel) tbCadastro.getModel();
             Object[] dados= {nomeCadastro,cpfCadastro, PlanoCadastro,UsuarioCadastro,SenhaCadastro };
             jTbCadastro.addRow(dados);
+            
+            try {
+                AcionistaDao dao = new AcionistaDao();
+                dao.adicionar(acionista);
+            } catch (SQLException ex) {
+                Logger.getLogger(CadastroAcionista.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                                  
             JOptionPane.showMessageDialog(null, "Cadastro Efetuado com sucesso!");
             TelaLogin tela = new TelaLogin();
             tela.setVisible(true);
