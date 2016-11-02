@@ -305,22 +305,21 @@ public class CadastroAcionista extends javax.swing.JFrame {
                 acionista.setPlano(PlanoCadastro);
 
             }
-        }
-
-        else {
-                             
-
+        }else{
+             
             DefaultTableModel jTbCadastro = (DefaultTableModel) tbCadastro.getModel();
             Object[] dados= {nomeCadastro,cpfCadastro, PlanoCadastro,UsuarioCadastro,SenhaCadastro };
             jTbCadastro.addRow(dados);
             
-            try {
-                AcionistaDao dao = new AcionistaDao();
-                dao.adicionar(acionista);
+            try { 
+                AcionistaDao add = new AcionistaDao();
+                add.adicionar(acionista);
+
             } catch (SQLException ex) {
                 Logger.getLogger(CadastroAcionista.class.getName()).log(Level.SEVERE, null, ex);
             }
-                                  
+             
+                                                        
             JOptionPane.showMessageDialog(null, "Cadastro Efetuado com sucesso!");
             TelaLogin tela = new TelaLogin();
             tela.setVisible(true);
@@ -333,6 +332,7 @@ public class CadastroAcionista extends javax.swing.JFrame {
             txtSenha2Cadastro.setText("");
             lblSenha2.setText("");
             lblPlanoCadastro.setText("");}
+    
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

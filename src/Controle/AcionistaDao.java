@@ -22,7 +22,7 @@ public AcionistaDao() throws SQLException{
 
 public void adicionar (Acionista acionista) {
     
-   String sql = "INSERT INTO cadastroacionista(Nome,CPF,ValorPlano,Usuario, Senha) VALUES(?,?,?,?,?)" ;
+   String sql = "INSERT INTO cadastroacionista(nome,cpf,plano,usuario,senha) VALUES(?,?,?,?,?)" ;
    
    try{
      PreparedStatement stmt = conecta.prepareStatement(sql);
