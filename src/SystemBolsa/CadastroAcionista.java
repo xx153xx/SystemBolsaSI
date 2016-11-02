@@ -7,6 +7,7 @@ package SystemBolsa;
 
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+
 import Controle.Acionista;
 import Controle.AcionistaDao;
 import java.sql.SQLException;
@@ -208,6 +209,7 @@ public class CadastroAcionista extends javax.swing.JFrame {
                     .addComponent(jLabel6)
                     .addComponent(txtCpfCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jpnCadastroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
                     .addComponent(jLabel12)
@@ -273,6 +275,7 @@ public class CadastroAcionista extends javax.swing.JFrame {
     }//GEN-LAST:event_txtSenha2CadastroActionPerformed
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
+
         
         Acionista acionista = new Acionista();
         
@@ -285,14 +288,24 @@ public class CadastroAcionista extends javax.swing.JFrame {
         acionista.setUsuario(UsuarioCadastro);
         SenhaCadastro = new String(this.txtSenhaCadastro.getPassword()).trim();
         SenhaCadastro2 = new String(this.txtSenha2Cadastro.getPassword()).trim();
-        
+
+        nomeCadastro = this.txtNomeCadastro.getText();
+        cpfCadastro = this.txtCpfCadastro.getText();
+        PlanoCadastro = Float.parseFloat(this.txtPlanoCadastro.getText());
+        UsuarioCadastro = this.txtUsuarioCadastro.getText();
+        SenhaCadastro = new String(this.txtSenhaCadastro.getPassword()).trim();
+        SenhaCadastro2 = new String(this.txtSenha2Cadastro.getPassword()).trim();
+
         if (((PlanoCadastro != 1500) && (PlanoCadastro != 3000) && (PlanoCadastro != 5000)) || (!(SenhaCadastro.equals(SenhaCadastro2)))){
             if((!(SenhaCadastro.equals(SenhaCadastro2)))){
                 lblSenha2.setText("Senhas Incompatíveis!!!");
 
             }else if(SenhaCadastro.equals(SenhaCadastro2)){
                 lblSenha2.setText("");
+
                 acionista.setSenha(SenhaCadastro);
+
+
 
             }if((PlanoCadastro != 1500) && (PlanoCadastro != 3000) && (PlanoCadastro != 5000)){
                 lblPlanoCadastro.setText("Plano Imcompatível!!!");
@@ -302,6 +315,7 @@ public class CadastroAcionista extends javax.swing.JFrame {
 
             else if ((PlanoCadastro == 1500) || (PlanoCadastro == 3000) || (PlanoCadastro == 5000)){
                 lblPlanoCadastro.setText(" ");
+
                 acionista.setPlano(PlanoCadastro);
 
             }
@@ -320,6 +334,17 @@ public class CadastroAcionista extends javax.swing.JFrame {
             }
              
                                                         
+
+
+            }
+        }
+
+        else {
+
+            DefaultTableModel jTbCadastro = (DefaultTableModel) tbCadastro.getModel();
+            Object[] dados= {nomeCadastro,cpfCadastro, PlanoCadastro,UsuarioCadastro,SenhaCadastro };
+            jTbCadastro.addRow(dados);
+
             JOptionPane.showMessageDialog(null, "Cadastro Efetuado com sucesso!");
             TelaLogin tela = new TelaLogin();
             tela.setVisible(true);
@@ -332,7 +357,8 @@ public class CadastroAcionista extends javax.swing.JFrame {
             txtSenha2Cadastro.setText("");
             lblSenha2.setText("");
             lblPlanoCadastro.setText("");}
-    
+
+
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 

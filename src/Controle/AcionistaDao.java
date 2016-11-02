@@ -1,7 +1,7 @@
 
 package Controle;
 
-import SystemBolsa.Conexao;
+import Bolsa.Conexao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
