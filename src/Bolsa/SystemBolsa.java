@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package SystemBolsa;
+package Bolsa;
 
 import Bolsa.Conexao;
 import java.sql.DriverManager;
