@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/derp_/Documents/GitHub/SystemBolsaSI/src/Bolsa/Conexao.java</file>
-            <file>file:/C:/Users/derp_/Documents/GitHub/SystemBolsaSI/src/SystemBolsa/CadastroAcionista.java</file>
-            <file>file:/C:/Users/derp_/Documents/GitHub/SystemBolsaSI/src/Bolsa/SystemBolsa.java</file>
+            <file>file:/C:/Users/JOÃO/Documents/GitHub/SystemBolsaSI/src/Bolsa/Conexao.java</file>
+            <file>file:/C:/Users/JOÃO/Documents/GitHub/SystemBolsaSI/src/Bolsa/SystemBolsa.java</file>
+            <file>file:/C:/Users/JOÃO/Documents/GitHub/SystemBolsaSI/src/SystemBolsa/CadastroAcionista.java</file>
+            <file>file:/C:/Users/JOÃO/Documents/GitHub/SystemBolsaSI/src/Controle/AcionistaDao.java</file>
         </group>
     </open-files>
 </project-private>

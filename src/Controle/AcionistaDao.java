@@ -15,7 +15,7 @@ public class AcionistaDao {
     private String usuario;
     private String senha;
 
-public AcionistaDao() throws SQLException{
+public AcionistaDao(){
     
     this.conecta = new Conexao().getConnection();
 }

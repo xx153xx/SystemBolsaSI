@@ -13,7 +13,7 @@ public class Conexao {
     public Connection getConnection() {
         try{
            
-           return DriverManager.getConnection ("jdbc:mysql://localhost:3066/cadastro","root","admin");
+           return DriverManager.getConnection ("jdbc:mysql://localhost:3306/cadastro","root","admin");
     
     
 }catch(Exception execao){
