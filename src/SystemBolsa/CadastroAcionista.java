@@ -306,16 +306,12 @@ public class CadastroAcionista extends javax.swing.JFrame {
 
         else {
 
-            //DefaultTableModel jTbCadastro = (DefaultTableModel) tbCadastro.getModel();
-            //Object[] dados= { PlanoCadastro,UsuarioCadastro,SenhaCadastro };
-            //jTbCadastro.addRow(dados);
+            /*DefaultTableModel jTbCadastro = (DefaultTableModel) tbCadastro.getModel();
+            Object[] dados= { PlanoCadastro,UsuarioCadastro,SenhaCadastro };
+            jTbCadastro.addRow(dados);*/
             
-            try {
-                AcionistaDao dao = new AcionistaDao();
-                dao.adicionar(acionista);
-            } catch (SQLException ex) {
-                Logger.getLogger(CadastroAcionista.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            AcionistaDao dao = new AcionistaDao();
+            dao.adicionar(acionista);
             
             
             JOptionPane.showMessageDialog(null, "Cadastro Efetuado com sucesso!");

@@ -5,6 +5,8 @@
  */
 package SystemBolsa;
 
+import Controle.Corretor;
+import Controle.CorretorDao;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,12 +17,8 @@ import javax.swing.table.DefaultTableModel;
 public class CadastroCorretor extends javax.swing.JFrame {
 
     public String ChaveCadastro;
-    public String CpfCorretor;
-    public String CtpsCorretor;
-    public String NomeCorretor;
     public String Senha2Corretor;
     public String SenhaCorretor;
-    public String UsuarioCorretor;
     public CadastroCorretor() {
         initComponents();
     }
@@ -187,10 +185,11 @@ public class CadastroCorretor extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addComponent(jLabel4)
                 .addGap(59, 59, 59)
-                .addGroup(jpnCadastroCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtChaveCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblChaveCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jpnCadastroCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblChaveCadastro, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpnCadastroCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtChaveCadastro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jpnCadastroCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,10 +212,11 @@ public class CadastroCorretor extends javax.swing.JFrame {
                     .addComponent(jLabel8)
                     .addComponent(txtSenhaCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jpnCadastroCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(txtSenha2Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblSenhaCorretor, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jpnCadastroCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSenhaCorretor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jpnCadastroCorretorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(txtSenha2Corretor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(btnCadastroCorretor)
                 .addContainerGap(201, Short.MAX_VALUE))
@@ -277,28 +277,38 @@ public class CadastroCorretor extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCadastroCorretorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastroCorretorActionPerformed
+        
+        Corretor corretor = new Corretor();
+        
         ChaveCadastro = this.txtChaveCadastro.getText();
-        NomeCorretor = this.txtNomeCorretor.getText();
-        CpfCorretor = this.txtCpfCorretor.getText();
-        CtpsCorretor = this.txtCtpsCorretor.getText();
-        UsuarioCorretor = this.txtUsuarioCorretor.getText();
+        corretor.setChavecadastro(ChaveCadastro);
+        corretor.setNome(txtNomeCorretor.getText());
+        corretor.setCpf(txtCpfCorretor.getText());
+        corretor.setCtps(txtCtpsCorretor.getText());
+        corretor.setUsuario(txtUsuarioCorretor.getText());
         SenhaCorretor = new String (this.txtSenhaCorretor.getPassword()).trim();
         Senha2Corretor = new String(this.txtSenha2Corretor.getPassword()).trim();
         if((!(ChaveCadastro.equals("honesty"))) || (!(SenhaCorretor.equals(Senha2Corretor)))){
             if(!(ChaveCadastro.equals("honesty"))){
                 lblChaveCadastro.setText("Chave de cadastro inválida!!!!");
                 
-            }else { lblChaveCadastro.setText(" ");  }
+            }else { lblChaveCadastro.setText(" "); 
+                    corretor.setChavecadastro(ChaveCadastro);
             
-            if(!(SenhaCorretor.equals(Senha2Corretor))){
+            } if(!(SenhaCorretor.equals(Senha2Corretor))){
                 lblSenhaCorretor.setText("Senhas Incompatíveis!!!!");
-            }else{ lblSenhaCorretor.setText(" ");   }
+            }else{ lblSenhaCorretor.setText(" ");   
+                  corretor.setSenha(SenhaCorretor);}
             
             
         }else{
-            DefaultTableModel jTbCadastroCorretor = (DefaultTableModel) tbCorretor.getModel();
+            /*DefaultTableModel jTbCadastroCorretor = (DefaultTableModel) tbCorretor.getModel();
             Object[] dados= {NomeCorretor,CpfCorretor, CtpsCorretor,UsuarioCorretor,SenhaCorretor };
-            jTbCadastroCorretor.addRow(dados);
+            jTbCadastroCorretor.addRow(dados);*/
+            
+            CorretorDao dao = new CorretorDao();
+            dao.adicionar(corretor);
+            
             JOptionPane.showMessageDialog(null, "Cadastro Efetuado com sucesso!");
             LoginCorretor tela = new LoginCorretor();
             tela.setVisible(true);
